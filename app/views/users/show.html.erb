@@ -1,1 +1,7 @@
 <h1>This is <%= @user.username%>'s profile</h1>
+<h1>Calendar Events</h1>
+<%@user.events.each do |event| %>
+<h1><%=event.title%> </h1>
+<p><%=event.description%></p>
+<p><%=event.date%></p>
+<%end%>
