@@ -13,14 +13,22 @@
   <body>
   <br>
 
+<span><%= link_to "View all Events!", events_url%></span>
     <% if current_user %>
-      <span>Logged in as: <%= link_to "#{current_user.username}", current_user %></span>
       <span><%= link_to "Create Event!", new_event_url%></span>
+      <span>Logged in as: <%= link_to "#{current_user.username}", current_user %></span>
+      
+      <%= form_with model: @user, url: '/sign_out', method: :post do |form|%>
+        <div class="actions">
+          <%= form.submit "Log Out"%>
+        </div>
+      <% end %>
+      
       <% else %>
       <%= link_to "Login!", "/sign-in" %>
       <%= link_to "Sign up!", new_user_url %>
     <% end %>
-    <span><%= link_to "View all Events!", events_url%></span>
+    
     
     
     <%= yield %>
@@ -28,8 +36,13 @@
     <% unless logged_in? %>
       <%= link_to "Login!", "/sign-in" %>
       <%= link_to "Sign up!", new_user_url %>
-      <% else %>
+    <% else %>
       <%= link_to "Create An Event!", new_event_url %>
+        <%= form_with model: @user, url: '/sign_out', method: :post do |form|%>
+          <div class="actions">
+            <%= form.submit "Log Out"%>
+          </div>
+      <% end %>
     <% end %>
   </body>
 </html>

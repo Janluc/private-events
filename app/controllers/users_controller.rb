@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      redirect_to new_user_url
+      render :new
     end
   end
 
@@ -28,8 +28,13 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to @user
     else
-      redirect_to sign_in_url
+      redirect_to sign_in_url, notice: 'Invalid Username'
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to '/events'
   end
 
   private

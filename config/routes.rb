@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root 'users#new'
 
   get '/sign-in', to: 'users#new_sign_in'
-  post '/sign_in', to: 'users#sign_in'
+  post '/sign-in', to: 'users#sign_in'
   post '/events/:id', to: 'events#join'
+  post '/sign_out', to: 'users#destroy'
 end

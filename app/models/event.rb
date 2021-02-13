@@ -1,4 +1,7 @@
 class Event < ApplicationRecord
+  validates :title, presence: true, length: { minimum: 4 }
+  validates :description, presence: true, length: { minimum: 4 }
+  validates :date, presence: true
   belongs_to :user
 
   has_many :event_users

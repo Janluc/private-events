@@ -1,17 +1,13 @@
 <h1>Log in!</h1>
 
-<%= form_with model: @user, url: '/sign_in', method: :post do |form|%>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<%= form_with model: @user, url: '/sign-in', method: :post do |form|%>
+<% flash.each do |type, msg| %>
+  <div>
+    <h3><%= msg %></h3>
+  </div>
+<% end %>
+  
 
-      <ul>
-        <% @user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
 
     <div class="field">
       <%= form.label :username %>
