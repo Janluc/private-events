@@ -8,14 +8,21 @@ Private Events project is made on Ruby on Rails and it is an application where u
 - Ruby on Rails
 - HTML
 
+
+# Prerequisites
+- Ruby v2.7.2
+- Terminal/Console/Cmd
+
 ## Getting Started
 Can download this code with any method and over the terminal with the commands:
 
 - git clone this repo
-- Open the Rails console from the terminal with the command
-- rails s 
-- Open webpage and paste this: http://127.0.0.1:3000
-- You can try now to create a user and make a post
+- Open your terminal/console and cd into the directory of the repo
+- type 'bundle install' in the console
+- When the bundle install is complete, type 'rails db:migrate' in the console
+- Now you can start the app with the command 'rails s' 
+- Open a browser and paste this: http://127.0.0.1:3000
+- You can try now to create a user and make an event
 
 
 
