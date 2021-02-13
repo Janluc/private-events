@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    redirect_to events_url if current_user
   end
 
   def create
