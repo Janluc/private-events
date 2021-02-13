@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Members Only
+# Private Events
 
 Private Events project is made on Ruby on Rails and it is an application where users can create events and and plan on attending events. All users can signup,login, attend events, and view who else will be attending said events.
 
