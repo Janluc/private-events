@@ -1,8 +1,11 @@
-<h1>Index Page</h1>
+<h1>All Events!</h1>
+
+<ul>
 <%@event.each do |event| %>
-<h1><%=event.title%> </h1>
-<p><%=event.description%></p>
-<p><%=event.date%></p>
-
+<li>
+  <h1><%=link_to event.title, "/events/#{event.id}"%> </h1>
+  <p><%=event.description%></p>
+  <p><%=event.date.to_date%></p>
+</li>
 <%end%>
-
+</ul>

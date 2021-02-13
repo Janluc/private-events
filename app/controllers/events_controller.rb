@@ -19,6 +19,16 @@ class EventsController < ApplicationController
 
     end
 
+    def join
+        @event = Event.find(params[:id])
+        unless @event.attendees.include?(current_user)
+          @event.attendees.push(current_user)
+          redirect_to @event
+        else
+          redirect_to @event
+        end
+    end
+
     def index
     @event = Event.all
     end

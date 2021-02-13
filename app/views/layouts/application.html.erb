@@ -11,9 +11,25 @@
   </head>
 
   <body>
-  <% if current_user %>
-    <h4>Logged in as: <%=current_user.username%></h4>
-  <% end %>
+  <br>
+
+    <% if current_user %>
+      <span>Logged in as: <%= link_to "#{current_user.username}", current_user %></span>
+      <span><%= link_to "Create Event!", new_event_url%></span>
+      <% else %>
+      <%= link_to "Login!", "/sign-in" %>
+      <%= link_to "Sign up!", new_user_url %>
+    <% end %>
+    <span><%= link_to "View all Events!", events_url%></span>
+    
+    
     <%= yield %>
+
+    <% unless logged_in? %>
+      <%= link_to "Login!", "/sign-in" %>
+      <%= link_to "Sign up!", new_user_url %>
+      <% else %>
+      <%= link_to "Create An Event!", new_event_url %>
+    <% end %>
   </body>
 </html>

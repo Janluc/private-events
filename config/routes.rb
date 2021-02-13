@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get "/sign-in", to: "users#new_sign_in"
   post "/sign_in", to: "users#sign_in"
+  post '/events/:id', to: "events#join"
 end
