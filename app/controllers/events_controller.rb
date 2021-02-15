@@ -20,10 +20,10 @@ class EventsController < ApplicationController
 
   def join
     @event = Event.find(params[:id])
-    if logged_in? 
-    @event.attendees.push(current_user) unless @event.attendees.include?(current_user)
-    redirect_to @event
-    else 
+    if logged_in?
+      @event.attendees.push(current_user) unless @event.attendees.include?(current_user)
+      redirect_to @event
+    else
       redirect_to root_url
     end
   end
