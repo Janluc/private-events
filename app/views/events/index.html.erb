@@ -1,0 +1,11 @@
+<h1>All Events!</h1>
+
+<ul>
+<%@event.each do |event| %>
+<li>
+  <h1><%=link_to event.title, "/events/#{event.id}"%> </h1>
+  <p><%=event.description%></p>
+  <p><%=event.date.to_date%></p>
+</li>
+<%end%>
+</ul>

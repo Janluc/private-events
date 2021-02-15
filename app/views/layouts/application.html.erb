@@ -11,6 +11,28 @@
   </head>
 
   <body>
+  <br>
+
+<span><%= link_to "View all Events!", events_url%></span>
+    <% if current_user %>
+      <span><%= link_to "Create Event!", new_event_url%></span>
+      <span>Logged in as: <%= link_to "#{current_user.username}", current_user %></span>
+      
+      <%= form_with model: @user, url: '/sign_out', method: :post do |form|%>
+        <div class="actions">
+          <%= form.submit "Log Out"%>
+        </div>
+      <% end %>
+      
+      <% else %>
+      <%= link_to "Login!", "/sign-in" %>
+      <%= link_to "Sign up!", new_user_url %>
+    <% end %>
+    
+    
+    
     <%= yield %>
+
+    
   </body>
 </html>

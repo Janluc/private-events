@@ -1,0 +1,15 @@
+
+<h1><%=@event.title%> </h1>
+<p><%=@event.description%></p>
+<p><%=@event.date%></p>
+
+<%= form_with url: "/events/#{@event.id}", method: :post do |form|%>
+  <%= form.submit "Attend Event" %>
+<% end %>
+
+<h3>Attending this event</h3>
+<ul>
+<%@event.attendees.each do |user|%>
+  <li><%=user.username%></li>
+<% end %>
+</ul>

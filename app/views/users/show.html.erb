@@ -1,0 +1,41 @@
+<h1>This is <%= @user.username%>'s profile</h1>
+<h1>Hosted Events</h1>
+<ul>
+<%@user.events.each do |event| %>
+  <li>
+    <h3><%=link_to event.title, "/events/#{event.id}"%> </h3>
+    <p><%=event.description%></p>
+    <p><%=event.date.to_date%></p>
+  </li>
+<%end%>
+</ul>
+<h1>Events they will attend!</h1>
+
+<ul>
+<h3>Upcoming!</h3>
+  <%Event.upcoming_event(Date.today).each  do |event|%>
+    <%event.attendees.each do |user|%>
+      <% if user.id == @user.id %>
+          <li>
+        <h5><%=link_to event.title, "/events/#{event.id}"%></h5>
+        <p><%=event.description%></p>
+        <p><%=event.date.to_date%></p>
+      </li>
+      <% end %>
+    <% end %>
+  <% end %>
+
+<h3>Already Happened</h3>
+ <%Event.past_event(Date.today).each  do |event|%>
+    <%event.attendees.each do |user|%>
+      <% if user.id == @user.id %>
+          <li>
+        <h5><%=link_to event.title, "/events/#{event.id}"%></h5>
+        <p><%=event.description%></p>
+        <p><%=event.date.to_date%></p>
+      </li>
+      <% end %>
+    <% end %>
+  <% end %>
+</ul>
+
